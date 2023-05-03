@@ -31,6 +31,7 @@ public class LoopAndArray {
 //D.Array
 	//Run ex1
 //		GradesAverageDEx1();
+		GradesAverageDEx1ver2();
 	//Run ex2
 		int[] a = {1,2,3,4};
 		printArray(a);
@@ -182,18 +183,40 @@ public class LoopAndArray {
 	
 //D.Array
 	//Ex1
-	public static void GradesAverageDEx1() {
+//	public static void GradesAverageDEx1() {
+//		System.out.print("Enter the number of students: ");
+//		Scanner scan = new Scanner(System.in);
+//		int numStudents = scan.nextInt();
+//		int[] grades = new int[numStudents];
+//		int sum = 0;
+//		double average;
+//		for(int i=0;i<numStudents;i++) {
+//			System.out.print("Enter the grade for student "+(i+1)+" : ");
+//			grades[i] = scan.nextInt();
+//			if((grades[i]>=0)&&(grades[i]<=100)) {
+//				sum+=grades[i];
+//			}else {
+//				System.out.println("Invalid grade, try again...");
+//				i--;
+//			}
+//		}
+//		average = (double)sum/numStudents;
+//		System.out.println("The average is: "+average);
+//	}
+//////////////////
+	public static void GradesAverageDEx1ver2() {
 		System.out.print("Enter the number of students: ");
 		Scanner scan = new Scanner(System.in);
 		int numStudents = scan.nextInt();
-		int[] grades = new int[numStudents];
+		ArrayList<Integer> grades = new ArrayList<Integer>();
 		int sum = 0;
 		double average;
 		for(int i=0;i<numStudents;i++) {
 			System.out.print("Enter the grade for student "+(i+1)+" : ");
-			grades[i] = scan.nextInt();
-			if((grades[i]>=0)&&(grades[i]<=100)) {
-				sum+=grades[i];
+			int input = scan.nextInt();
+			if((input>=0)&&(input<=100)) {
+				grades.add(input);
+				sum+=grades.get(i);
 			}else {
 				System.out.println("Invalid grade, try again...");
 				i--;
@@ -202,8 +225,8 @@ public class LoopAndArray {
 		average = (double)sum/numStudents;
 		System.out.println("The average is: "+average);
 	}
-		
-
+	
+///////////////////
 	//Ex2
 	public static void printArray(int[] array) {
 		if(array.length>0){
